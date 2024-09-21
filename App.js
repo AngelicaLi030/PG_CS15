@@ -41,6 +41,13 @@ import ProfileInfoScreen from './app/screens/ProfileInfoScreen';
 import ReportScreen from './app/screens/ReportScreen';
 import ActionPlanScreen from './app/screens/ActionPlanScreen';
 import HeadBumpsScreen from './app/screens/HeadBumpsScreen';
+import CAPSelectedPart from './app/screens/CAPSelectedPart';
+
+import CAPParentsHome from './app/screens/CAPParentsHome'
+import CAPParentsRedZone from './app/screens/CAPParentZones/RedZone'
+import CAPParentsOrangeZone from './app/screens/CAPParentZones/OrangeZone'
+import CAPParentsGreenZone from './app/screens/CAPParentZones/GreenZone'
+import CAPParentsYellowZone from './app/screens/CAPParentZones/YellowZone'
 
 import NextStepsScreen from './app/screens/NextStepsScreen';
 import ChecklistQuestionScreen from './app/screens/RedFlagsChecklist';
@@ -336,6 +343,13 @@ function CustomNavContent(){
     <RootStack.Screen testID='vms2' name="VOMS VMS 2" component={VMS2} />
     <RootStack.Screen testID='vms3' name="VOMS VMS 3 Response 8" component={VMS3} />
     <RootStack.Screen testID='dslComplete' name="DSL Complete" component={DSLComplete}/>
+
+    <RootStack.Screen testID='parentPart' name='Parent Part' component={CAPParentsHome}/>
+    <RootStack.Screen testID='capRedZone' name='CAP Red Zone' component={CAPParentsRedZone}/>
+    <RootStack.Screen testID='capOrangeZone' name='CAP Orange Zone' component={CAPParentsOrangeZone}/>
+    <RootStack.Screen testID='capYellowZone' name='CAP Yellow Zone' component={CAPParentsYellowZone}/>
+    <RootStack.Screen testID='capGreenZone' name='CAP Green Zone' component={CAPParentsGreenZone}/>
+
   </RootStack.Navigator>
   );
 }
@@ -440,7 +454,7 @@ function MyDrawer() {
                      <Ionicons name="document-text-outline" size={25} color={ color } />
                  ),
              }}/>
-         <Drawer.Screen testID='Concussion Action Plan' accessible={true} accessibilityLabel={'Concussion Action Plan'} name="Concussion Action Plan" component={ActionPlanScreen}
+         <Drawer.Screen testID='Concussion Action Plan' accessible={true} accessibilityLabel={'Concussion Action Plan'} name="Concussion Action Plan" component={CAPSelectedPart}
              options={{
                drawerIcon: ({ color }) => (
                    <Ionicons name="list-outline" size={25} color={ color } />
@@ -452,7 +466,6 @@ function MyDrawer() {
                  <Ionicons name="checkmark-circle-outline" size={25} color={ color } />
              ),
          }}/>
-
     </Drawer.Navigator>
   );
 }
