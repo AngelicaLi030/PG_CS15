@@ -4,6 +4,7 @@ import {
   Alert,
   View,
   ImageBackground,
+  Dimensions
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -12,13 +13,13 @@ import {
   UserContext,
   UserRepoContext,
   IncidentIdContext
-} from '../components/GlobalContextProvider';
+} from '../../components/GlobalContextProvider';
 import { useContext, useState, useRef, useEffect } from 'react';
-import uiStyle from '../styles/uiStyle';
-import styles from '../styles/AllReportScreenStyle';
+import uiStyle from '../../styles/uiStyle';
+import styles from '../../styles/AllReportScreenStyle';
 
 
-function AllReports({ navigation }){
+function CAPRecordsHome({ navigation }){
   // const patientRepoContext = useContext(PatientRepoContext);
   // const accountRepoContext = useContext(AccountRepoContext);
   // const incidentRepoContext = useContext(IncidentReportRepoContext);
@@ -54,68 +55,69 @@ function AllReports({ navigation }){
 //   }, [accountRepoContext]);
 
 
-  const createAlert = () =>
-  Alert.alert(
-    'Alert',
-    'Need to Login to see reports',
-    [
-      {
-        text: 'OK',
-        onPress: () => navigation.navigate('Login'),
-      },
-    ],
-  );
+//  const createAlert = () =>
+//  Alert.alert(
+//    'Alert',
+//    'Need to Login to see reports',
+//    [
+//      {
+//        text: 'OK',
+//        onPress: () => navigation.navigate('Login'),
+//      },
+//    ],
+//  );
 
   return (
     <SafeAreaView style={uiStyle.container}>
       <View style={styles.imagecontainer}>
-        <ImageBackground source = {require('../../assets/logo.png')} style={styles.image}>
+        <ImageBackground source = {require('../../../assets/brainImg.png')} style={styles.image,{width: Dimensions.get('window').width/1.8,
+                                                                                                       height: Dimensions.get('window').width/1.8,}}>
         </ImageBackground>
       </View>
       <View style={styles.titlecontainer}>
         <Text style={styles.text}>
-          Which reports would you like to access?
+          Which kind of chat would you like to  see?
         </Text>
 
         <View style={styles.inputAreaContainer}>
           <TouchableOpacity
             style={[styles.bottomButton, styles.shadowProp]}
             onPress={() => {
-                navigation.navigate('Continue Tests', {screen: 'Prelim Report'});
+                navigation.navigate('Continue Tests', {screen: 'Detailed Symptom Charts'});
             }}
           >
             <Text
               style={uiStyle.buttonLabel}
               maxFontSizeMultiplier={1}
             >
-              Preliminary Test Reports
+              Detailed Symptom Charts
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={[styles.bottomButton,  styles.shadowProp]}
             onPress={() => {
-              navigation.navigate('Continue Tests', {screen: 'DS Report'});
+              navigation.navigate('Continue Tests', {screen: 'Symptom Summarization'});
             }}
           >
             <Text
               style={uiStyle.buttonLabel}
               maxFontSizeMultiplier={1}
             >
-              Daily Symptom Reports
+              Symptom Summarization
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.bottomButton,  styles.shadowProp]}
+            style={[styles.bottomButton,  styles.shadowProp,{backgroundColor:'#15336D'}]}
             onPress={() => {
-                navigation.navigate('Continue Tests', {screen: 'CAP Records Home'});
+                navigation.goBack();
             }}
           >
             <Text
-                style={uiStyle.buttonLabel}
-                maxFontSizeMultiplier={1}
-            >
-            CAP Records
+              style={uiStyle.buttonLabel,{fontWeight:'bold',color:'#ffffff'}}
+              maxFontSizeMultiplier={1}
+          >
+                Back
             </Text>
           </TouchableOpacity>
         </View>
@@ -124,4 +126,4 @@ function AllReports({ navigation }){
   );
 }
 
-export default AllReports;
+export default CAPRecordsHome;

@@ -42,6 +42,51 @@ import ReportScreen from './app/screens/ReportScreen';
 import ActionPlanScreen from './app/screens/ActionPlanScreen';
 import HeadBumpsScreen from './app/screens/HeadBumpsScreen';
 
+
+
+
+//import ActionPlanScreenNew from './app/screens/ActionPlanScreenNew';
+//import CAPSelectedPart from './app/screens/CAPSelectedPart';
+//import CAPParentsHome from './app/screens/CAPParentsHome';
+import MainCategoryDoctor from './app/screens/MainCategoryDoctor';
+import PhysicalChecklist from './app/screens/DoctorChecklist/PhysicalChecklist';
+import CognitiveChecklist from './app/screens/DoctorChecklist/CognitiveChecklist';
+import EmotionalChecklist from './app/screens/DoctorChecklist/EmotionalChecklist';
+import SleepChecklist from './app/screens/DoctorChecklist/SleepChecklist';
+import DoctorName from './app/screens/DoctorInformation/DoctorName';
+import DoctorSign from './app/screens/DoctorInformation/DoctorSign';
+import AuthScreen from './app/screens/AuthScreen';
+import DoctorReview from './app/screens/DoctorReview';
+import SuccessPage from './app/screens/SuccessPage';
+import CAPSelectedPartDoctorComplete from './app/screens/CAPSelectedPartDoctorComplete';
+import MainCategoryPatient from './app/screens/MainCategoryPatient';
+import PhysicalChecklist_Patient from './app/screens/PatientChecklist/PhysicalChecklist_Patient';
+import CognitiveChecklist_Patient from './app/screens/PatientChecklist/CognitiveChecklist_Patient';
+import EmotionalChecklist_Patient from './app/screens/PatientChecklist/EmotionalChecklist_Patient';
+import SleepChecklist_Patient from './app/screens/PatientChecklist/SleepChecklist_Patient';
+
+
+
+
+import CAPSelectedPart from './app/screens/CAPSelectedPart';
+
+import CAPParentsHome from './app/screens/CAPParentsHome';
+import CAPParentsRedZone from './app/screens/CAPParentZones/RedZone';
+import CAPParentsOrangeZone from './app/screens/CAPParentZones/OrangeZone';
+import CAPParentsGreenZone from './app/screens/CAPParentZones/GreenZone';
+import CAPParentsYellowZone from './app/screens/CAPParentZones/YellowZone';
+import CAPSigning from './app/screens/CAPParentZones/CAPSigning';
+import ParentSign from './app/screens/CAPParentZones/DoctorSign'
+
+import SuccessSubmit from './app/screens/SuccessSubmit';
+
+import CAPRecordsHome from './app/screens/CAPRecords/CAPRecordsHome';
+import DetailedSymptomCharts from './app/screens/CAPRecords/DetailedSymptomCharts';
+import SymptomSummarization from './app/screens/CAPRecords/SymptomSummarization';
+import TbcScreen from './app/screens/TbcScreen';
+import TbcDone from './app/screens/TbcDone';
+
+
 import NextStepsScreen from './app/screens/NextStepsScreen';
 import ChecklistQuestionScreen from './app/screens/RedFlagsChecklist';
 import { GlobalContextProvider } from './app/components/GlobalContextProvider';
@@ -336,6 +381,45 @@ function CustomNavContent(){
     <RootStack.Screen testID='vms2' name="VOMS VMS 2" component={VMS2} />
     <RootStack.Screen testID='vms3' name="VOMS VMS 3 Response 8" component={VMS3} />
     <RootStack.Screen testID='dslComplete' name="DSL Complete" component={DSLComplete}/>
+
+
+
+
+    <RootStack.Screen testID='parentPart' name='Parent Part' component={CAPParentsHome}/>
+    <RootStack.Screen testID='capRedZone' name='CAP Red Zone' component={CAPParentsRedZone}/>
+    <RootStack.Screen testID='capOrangeZone' name='CAP Orange Zone' component={CAPParentsOrangeZone}/>
+    <RootStack.Screen testID='capYellowZone' name='CAP Yellow Zone' component={CAPParentsYellowZone}/>
+    <RootStack.Screen testID='capGreenZone' name='CAP Green Zone' component={CAPParentsGreenZone}/>
+    <RootStack.Screen testID='capSigning' name='CAP Signing' component={CAPSigning}/>
+    <RootStack.Screen testID='parentSign' name='Parent Sign' component={ParentSign}/>
+
+
+    <RootStack.Screen testID='successSubmit' name='Success Submit' component={SuccessSubmit}/>
+
+    <RootStack.Screen testID='capRecordsHome' name='CAP Records Home' component={CAPRecordsHome}/>
+    <RootStack.Screen testID='detailedSymptomCharts' name='Detailed Symptom Charts' component={DetailedSymptomCharts}/>
+    <RootStack.Screen testID='symptomSummarization' name='Symptom Summarization' component={SymptomSummarization}/>
+
+
+
+    <RootStack.Screen testID='DoctorCategory' name="Doctor Part" component={MainCategoryDoctor} />
+    <RootStack.Screen testID='PhyCheck' name="Physical Checklist" component={PhysicalChecklist} />
+    <RootStack.Screen testID='CogCheck' name="Cognitive Checklist" component={CognitiveChecklist} />
+    <RootStack.Screen testID='EmoCheck' name="Emotional Checklist" component={EmotionalChecklist} />
+    <RootStack.Screen testID='SleepCheck' name="Sleep Checklist" component={SleepChecklist} />
+    <RootStack.Screen testID='DocName' name="Doctor Name" component={DoctorName} />
+    <RootStack.Screen testID='DocSign' name="Doctor Sign" component={DoctorSign} />
+    <RootStack.Screen testID='DocAuth' name="Doctor Auth" component={AuthScreen} />
+    <RootStack.Screen testID='DocReview' name="Doctor Review" component={DoctorReview} />
+    <RootStack.Screen testID='Success' name="Success Page" component={SuccessPage} />
+    <RootStack.Screen testID='CAPSelectDoctorComplete' name="CAPSelectPage Doctor Complete" component={CAPSelectedPartDoctorComplete} />
+    <RootStack.Screen testID='PatientCategory' name="Patient Part" component={MainCategoryPatient} />
+    <RootStack.Screen testID='PhyCheck_patient' name="Physical Checklist Patient" component={PhysicalChecklist_Patient} />
+    <RootStack.Screen testID='CogCheck_patient' name="Cognitive Checklist Patient" component={CognitiveChecklist_Patient} />
+    <RootStack.Screen testID='EmoCheck_patient' name="Emotional Checklist Patient" component={EmotionalChecklist_Patient} />
+    <RootStack.Screen testID='SleepCheck_patient' name="Sleep Checklist Patient" component={SleepChecklist_Patient} />
+    <RootStack.Screen testID='TbcScreen_patient' name="TBC Screen" component={TbcScreen} />
+    <RootStack.Screen testID='TbcDone_patient' name="TBC Done" component={TbcDone} />
   </RootStack.Navigator>
   );
 }
@@ -440,12 +524,12 @@ function MyDrawer() {
                      <Ionicons name="document-text-outline" size={25} color={ color } />
                  ),
              }}/>
-         <Drawer.Screen testID='Concussion Action Plan' accessible={true} accessibilityLabel={'Concussion Action Plan'} name="Concussion Action Plan" component={ActionPlanScreen}
-             options={{
-               drawerIcon: ({ color }) => (
-                   <Ionicons name="list-outline" size={25} color={ color } />
-               ),
-           }}/>
+         <Drawer.Screen testID='Concussion Action Plan' accessible={true} accessibilityLabel={'Concussion Action Plan'} name="Concussion Action Plan" component={CAPSelectedPart}
+                      options={{
+                        drawerIcon: ({ color }) => (
+                            <Ionicons name="list-outline" size={25} color={ color } />
+                        ),
+                    }}/>
     <Drawer.Screen testID='Daily Symptom Checklist' accessible={true} accessibilityLabel={'Daily Symptom Checklist'} name="Daily Symptom Checklist" component={DSLScreen}
        options={{
              drawerIcon: ({ color }) => (
