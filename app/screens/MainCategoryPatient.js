@@ -176,7 +176,6 @@ const MainCategoryPatient = () => {
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
 
-
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text style={styles.backButtonText}>Back</Text>
       </TouchableOpacity>

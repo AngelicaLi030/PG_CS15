@@ -5,16 +5,80 @@ import {
   TouchableOpacity,
   ScrollView,
   StyleSheet,
-  Dimensions
+  Dimensions,
+  Alert
 } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { useContext, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
+import FileViewer from 'react-native-file-viewer';
 import styles from '../../styles/NextStepsScreenStyle';
 import parent_styles from '../../styles/CAPParentStyle';
 import zone_styles from '../../styles/CAPParentZoneStyle';
+import RNFS from 'react-native-fs';
 function RedZone({ navigation }) {
+
+
+  const openSymptomLogSheetPDF = async () => {
+//    console.log(RNFS.DocumentDirectoryPath);
+      const pdfPath = `${RNFS.DocumentDirectoryPath}/pdf/symptomLogSheet.pdf`;
+      try {
+          const fileExists = await RNFS.exists(pdfPath);
+          if (!fileExists) {
+            Alert.alert('Error', 'File does not exist at the specified path');
+            return;
+          }
+          await FileViewer.open(pdfPath);
+        } catch (error) {
+          console.error(error);
+          Alert.alert('Error', 'Unable to open PDF');
+        }
+  };
+  const openSymptomSignPDF = async () => {
+  //    console.log(RNFS.DocumentDirectoryPath);
+        const pdfPath = `${RNFS.DocumentDirectoryPath}/pdf/symptomsAndSigns.pdf`;
+        try {
+            const fileExists = await RNFS.exists(pdfPath);
+            if (!fileExists) {
+              Alert.alert('Error', 'File does not exist at the specified path');
+              return;
+            }
+            await FileViewer.open(pdfPath);
+          } catch (error) {
+            console.error(error);
+            Alert.alert('Error', 'Unable to open PDF');
+          }
+  };
+  const openRecoveryPDF = async () => {
+  //    console.log(RNFS.DocumentDirectoryPath);
+        const pdfPath = `${RNFS.DocumentDirectoryPath}/pdf/physicalCognitiveActivitySuggestion.pdf`;
+        try {
+            const fileExists = await RNFS.exists(pdfPath);
+            if (!fileExists) {
+              Alert.alert('Error', 'File does not exist at the specified path');
+              return;
+            }
+            await FileViewer.open(pdfPath);
+          } catch (error) {
+            console.error(error);
+            Alert.alert('Error', 'Unable to open PDF');
+          }
+  };
+  const openHeadachePDF = async () => {
+  //    console.log(RNFS.DocumentDirectoryPath);
+        const pdfPath = `${RNFS.DocumentDirectoryPath}/pdf/headacheInfoSheet.pdf`;
+        try {
+            const fileExists = await RNFS.exists(pdfPath);
+            if (!fileExists) {
+              Alert.alert('Error', 'File does not exist at the specified path');
+              return;
+            }
+            await FileViewer.open(pdfPath);
+          } catch (error) {
+            console.error(error);
+            Alert.alert('Error', 'Unable to open PDF');
+          }
+    };
   return (
     <SafeAreaView style={parent_styles.container}>
       <View style={[parent_styles.container]}>
@@ -30,13 +94,14 @@ function RedZone({ navigation }) {
                   {'\n'}
                   1. Encourage good sleep patterns. Rest your child with no TV, phone or disruptions.
                   {'\n'}
+
                   2. Provide regular meals and a minimum of 2L of water per day.
                   {'\n'}
-                  3. Use over the counter headache medication as needed.
+                  3. Use over the counter{' '}<Text style={{color:'blue',textDecorationLine:'underline'}} onPress={openHeadachePDF}>headache medication</Text>{''}as needed.
                   {'\n'}
-                  4. Complete the Symptoms Log Sheet, monitoring your child’s symptoms and signs. Continue using the sheet until your child reaches 14 days  without symptoms.
+                  4. Complete the{' '}<Text style={{color:'blue',textDecorationLine:'underline'}} onPress={openSymptomLogSheetPDF}> Symptoms Log Sheet</Text>{' '}, monitoring your child’s{' '}<Text style={{color:'blue',textDecorationLine:'underline'}} onPress={openSymptomSignPDF}>symptoms and signs</Text>{''}. Continue using the sheet until your child reaches 14 days  without symptoms.
                   {'\n'}
-                  5. Encourage your child to have a positive mental attitude towards their recovery
+                  5. Encourage your child to have a positive mental attitude towards their{' '}<Text style={{color:'blue',textDecorationLine:'underline'}} onPress={openRecoveryPDF}>recovery</Text>{' '}
                 </Text>
               </ScrollView>
             </View>

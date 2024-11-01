@@ -75,7 +75,6 @@ const DoctorSign = () => {
 
         <TouchableOpacity
           style={styles.button}
-          onPress={() => signRef.current.readSignature()}
         >
           <Text style={styles.buttonText}>Save</Text>
         </TouchableOpacity>

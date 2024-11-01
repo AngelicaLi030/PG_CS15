@@ -76,7 +76,7 @@ function CAPRecordsHome({ navigation }){
       </View>
       <View style={styles.titlecontainer}>
         <Text style={styles.text}>
-          Which kind of chat would you like to  see?
+          Which kind of chart would you like to  see?
         </Text>
 
         <View style={styles.inputAreaContainer}>

@@ -34,7 +34,7 @@ function SuccessSubmit({ navigation }) {
                 </View>
                 <View style={{paddingTop:100}}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('Concussion Action Plan')}
+                        onPress={() => navigation.navigate('Continue Tests', { screen:'CAPSelectPage Doctor Complete'})}
                         style={[styles.bottomButton, parent_styles.shadowProp]}
                     >
                         <Text style={[styles.buttonLabel]}>Done</Text>

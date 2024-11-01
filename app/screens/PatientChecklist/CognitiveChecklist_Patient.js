@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../../styles/PatientChecklistStyles/CognitiveChecklistStyle_Patient';
 import { useNavigation } from '@react-navigation/native';
@@ -8,6 +8,18 @@ const CognitiveChecklist_Patient = () => {
   const navigation = useNavigation();
 
   const [selected, setSelected] = useState(Array(4).fill(false));
+  const [timerExpired, setTimerExpired] = useState(false);
+
+  useEffect(() => {
+    // Start the 5-second timer when the component mounts
+    const timer = setTimeout(() => {
+      setTimerExpired(true);
+      Alert.alert('Reminder', 'Please complete the checklist within 30 minutes.');
+    }, 5000);
+
+    // Clear the timer if the component unmounts
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggleSelection = (index) => {
     const updatedSelection = [...selected];
@@ -26,8 +38,9 @@ const CognitiveChecklist_Patient = () => {
     console.log('Selected Cognitive Symptoms:', selectedSymptomsCognitive);
 
     navigation.navigate('Continue Tests', {
-        screen: 'Patient Part',
-        params: { cognitiveSelectedCount, selectedSymptomsCognitive }});
+      screen: 'Patient Part',
+      params: { cognitiveSelectedCount, selectedSymptomsCognitive }
+    });
   };
 
   const handleCancel = () => {

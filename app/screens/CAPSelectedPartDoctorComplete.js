@@ -85,7 +85,7 @@ function CAPSelectedPartDoctorComplete({ navigation }) {
         <TouchableOpacity
           style={[styles.bottomButton, styles.shadowProp]}
           onPress={() => {
-            navigation.navigate('Continue Tests', { screen: 'Prelim Report' });
+            navigation.navigate('Continue Tests', {screen: 'Patient Part'});
           }}
         >
           <Text style={uiStyle.buttonLabel} maxFontSizeMultiplier={1}>

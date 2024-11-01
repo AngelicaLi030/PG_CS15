@@ -21,7 +21,7 @@ function GreenZone({ navigation }) {
   return (
     <SafeAreaView style={[parent_styles.container]}>
       <View style={[parent_styles.container]}>
-        <Text style={[parent_styles.titleText, parent_styles.titleTextBox]}>GREEN ZONE</Text>
+        <Text style={[parent_styles.titleText, parent_styles.titleTextBox,{backgroundColor:'#B6FDB6'}]}>GREEN ZONE</Text>
         <View style={[parent_styles.infoTextContainer,{height: Dimensions.get('window').width/0.8}]}>
             <ScrollView style={[parent_styles.stackedTextBox]}>
                 <Text style={[parent_styles.stackedText,{textAlign: 'left',marginVertical: Dimensions.get('window').width/20,fontSize: Dimensions.get('window').width/35}]}>

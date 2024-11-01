@@ -14,13 +14,28 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import parent_styles from '../../styles/CAPParentStyle';
 import styles from '../../styles/NextStepsScreenStyle';
 import zone_styles from '../../styles/CAPParentZoneStyle'
-
+import RNFS from 'react-native-fs';
+import FileViewer from 'react-native-file-viewer';
 function YellowZone({ navigation }) {
-
+  const openPartTimePDF = async () => {
+      //    console.log(RNFS.DocumentDirectoryPath);
+            const pdfPath = `${RNFS.DocumentDirectoryPath}/pdf/returnToSku.pdf`;
+            try {
+                const fileExists = await RNFS.exists(pdfPath);
+                if (!fileExists) {
+                  Alert.alert('Error', 'File does not exist at the specified path');
+                  return;
+                }
+                await FileViewer.open(pdfPath);
+              } catch (error) {
+                console.error(error);
+                Alert.alert('Error', 'Unable to open PDF');
+              }
+  };
   return (
     <SafeAreaView style={parent_styles.container}>
       <View style={[parent_styles.container]}>
-        <Text style={[parent_styles.titleText, parent_styles.titleTextBox]}>YELLOW ZONE</Text>
+        <Text style={[parent_styles.titleText, parent_styles.titleTextBox,{backgroundColor:'#FFFF88'}]}>YELLOW ZONE</Text>
            <View style={[parent_styles.infoTextContainer,{height: Dimensions.get('window').width/0.8}]}>
               <ScrollView style={[parent_styles.stackedTextBox]}>
                 <Text style={[parent_styles.stackedText,{textAlign: 'left',marginVertical: Dimensions.get('window').width/20,fontSize: Dimensions.get('window').width/30}]}>
@@ -37,7 +52,7 @@ function YellowZone({ navigation }) {
                   {'\n\n'}
                   <Text style={{fontWeight:'bold'}}>Step 2 – Moderate Level</Text>
                   {'\n'}
-                  1. Part-time school with accommodations (rest breaks, minimal homework, no exams) until tolerating 60 minutes of cognitive exertion.
+                  1. {''}<Text style={{color:'blue',textDecorationLine:'underline'}} onPress={openPartTimePDF}>Part-time school</Text>{''} with accommodations (rest breaks, minimal homework, no exams) until tolerating 60 minutes of cognitive exertion.
                   {'\n'}
                   2. Specific skills and moderate aerobic activity for 20-30 minutes.
                   {'\n'}
