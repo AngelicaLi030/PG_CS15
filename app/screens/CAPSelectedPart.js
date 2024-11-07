@@ -100,9 +100,6 @@ function CAPSelectedPart({navigation}){
 
                 <TouchableOpacity
                                                             style={[styles.nextButton, styles.shadowProp]}
-                                                            onPress={() => {
-                                                                navigation.navigate('Continue Tests', {screen: 'Prelim Report'});
-                                                            }}
                                                           >
                                                             <Text
                                                               style={styles.nextText}
