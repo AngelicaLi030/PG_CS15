@@ -180,12 +180,12 @@ function SymptomSummarization({ navigation }) {
             <View style={{ marginTop: Dimensions.get('window').height / 20, backgroundColor: '#fff', height: Dimensions.get('window').height / 1.8, width: Dimensions.get('window').width * 0.9, borderRadius: 30 }}>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{ flexDirection: 'row', padding: 10, height: Dimensions.get('window').height / 2 }}>
                     <Svg height="400" width={data.length * 80 + 50}>
-                        {/* y轴 */}
+
                         <Line x1="40" y1="30" x2="40" y2="300" stroke="black" strokeWidth="2" />
-                        {/* x轴 */}
+
                         <Line x1="40" y1="300" x2={data.length * 80 + 50} y2="300" stroke="black" strokeWidth="2" />
 
-                        {/* 柱状图 */}
+
                         {data.map((item, index) => {
                             let yOffset = 0;
                             return item.values.map((value, i) => {
