@@ -90,7 +90,7 @@ Run the following commands to setup the codebase onto your computer with all nec
 # 5. Running The App
 
 Run the command `npm run android` to launch the app in an Android Studio emulator.
-When running this command, you may need to install other packages. Please download the corresponding packages according to the terminal error prompt, for example:
+When running this command, you may need to install other packages. Please download the corresponding packages according to the terminal error prompt, such as:
 1.  `npm install react-native-fs`
 2. `npm install react-native-signature-canvas`
 
