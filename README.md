@@ -93,6 +93,8 @@ Run the command `npm run android` to launch the app in an Android Studio emulato
 When running this command, you may need to install other packages. Please download the corresponding packages according to the terminal error prompt, such as:
 1. `npm install react-native-fs`
 2. `npm install react-native-signature-canvas`
+There are some problems need to be noticed. For example, there are some hyperlinks in parent part which is connected with corresponding pdf document. 
+If it notice that there is a error when clicking the linking, you need to upload all pdf documents stored in assets/pdf to  `RNFS.DocumentDirectoryPath}/pdf/` in the emulator.
 
 # 6. Building The App Binary
 
