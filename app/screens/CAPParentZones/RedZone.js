@@ -9,19 +9,52 @@ import {
   Alert
 } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
-import { useContext, useState } from 'react';
+import { useContext, useState,useEffect } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FileViewer from 'react-native-file-viewer';
 import styles from '../../styles/NextStepsScreenStyle';
 import parent_styles from '../../styles/CAPParentStyle';
 import zone_styles from '../../styles/CAPParentZoneStyle';
 import RNFS from 'react-native-fs';
-function RedZone({ navigation }) {
 
+
+function RedZone({ navigation }) {
+//  const [filePath, setFilePath] = useState(null);
+//  useEffect(() => {
+//      const copyPdfToLocalStorage = async () => {
+//        const fileName = 'symptomLogSheet.pdf';
+//        const sourcePath = `asset:/pdf/${fileName}`;
+//        const destinationPath = `${RNFS.DocumentDirectoryPath}/pdf/${fileName}`;
+//
+//        try {
+//
+//          const fileExists = await RNFS.exists(destinationPath);
+//          if (!fileExists) {
+//
+//            await RNFS.copyFile(sourcePath, destinationPath);
+//            console.log('success copy', destinationPath);
+//          }
+//          setFilePath(destinationPath);
+//        } catch (error) {
+//          console.error('copy error', error);
+//        }
+//      };
+//      copyPdfToLocalStorage();
+//  }, []);
 
   const openSymptomLogSheetPDF = async () => {
-//    console.log(RNFS.DocumentDirectoryPath);
+
+
+
       const pdfPath = `${RNFS.DocumentDirectoryPath}/pdf/symptomLogSheet.pdf`;
+//      RNFS.copyFileAssets(pdfSourcePath, pdfPath)
+//                  .then(() => {
+//                      Alert.alert('Success', 'copy success');
+//                  })
+//                  .catch(error => {
+//                      Alert.alert('Error', `copy failure: ${error.message}`);
+//                  });
+
       try {
           const fileExists = await RNFS.exists(pdfPath);
           if (!fileExists) {
