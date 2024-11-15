@@ -20,31 +20,9 @@ import RNFS from 'react-native-fs';
 
 function RedZone({ navigation }) {
 //  const [filePath, setFilePath] = useState(null);
-//  useEffect(() => {
-//      const copyPdfToLocalStorage = async () => {
-//        const fileName = 'symptomLogSheet.pdf';
-//        const sourcePath = `asset:/pdf/${fileName}`;
-//        const destinationPath = `${RNFS.DocumentDirectoryPath}/pdf/${fileName}`;
-//
-//        try {
-//
-//          const fileExists = await RNFS.exists(destinationPath);
-//          if (!fileExists) {
-//
-//            await RNFS.copyFile(sourcePath, destinationPath);
-//            console.log('success copy', destinationPath);
-//          }
-//          setFilePath(destinationPath);
-//        } catch (error) {
-//          console.error('copy error', error);
-//        }
-//      };
-//      copyPdfToLocalStorage();
-//  }, []);
+
 
   const openSymptomLogSheetPDF = async () => {
-
-
 
       const pdfPath = `${RNFS.DocumentDirectoryPath}/pdf/symptomLogSheet.pdf`;
 //      RNFS.copyFileAssets(pdfSourcePath, pdfPath)

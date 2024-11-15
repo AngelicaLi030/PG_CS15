@@ -91,7 +91,7 @@ Run the following commands to setup the codebase onto your computer with all nec
 
 Run the command `npm run android` to launch the app in an Android Studio emulator.
 When running this command, you may need to install other packages. Please download the corresponding packages according to the terminal error prompt, such as:
-1.  `npm install react-native-fs`
+1. `npm install react-native-fs`
 2. `npm install react-native-signature-canvas`
 
 # 6. Building The App Binary
